@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --d2-bg: #0a0a0a;
+  --d2-green: #33ff33;
+  --d2-green-dim: #1a8a1a;
+  --d2-green-dark: #0d440d;
+  --d2-amber: #ffaa00;
+  --d2-red: #ff3333;
+}
+
+.d2-root {
+  min-height: 100vh;
+  background: var(--d2-bg);
+  color: var(--d2-green);
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.d2-scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1000;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+}
+
+.d2-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.d2-terminal {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Boot sequence */
+.d2-boot {
+  padding: 2rem 0;
+}
+
+.d2-boot-line {
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: d2-fadeIn 0.3s ease-out forwards;
+}
+
+.d2-boot-line:nth-child(1) { animation-delay: 0s; }
+.d2-boot-line:nth-child(2) { animation-delay: 0.7s; }
+.d2-boot-line:nth-child(3) { animation-delay: 1.4s; }
+.d2-boot-line:nth-child(4) { animation-delay: 2.1s; }
+.d2-boot-line:nth-child(5) { animation-delay: 2.8s; }
+
+.d2-boot-ready {
+  color: var(--d2-amber);
+}
+
+@keyframes d2-fadeIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.d2-prompt {
+  color: var(--d2-amber);
+  font-weight: 600;
+  margin-right: 0.8rem;
+}
+
+.d2-prompt::before {
+  content: '> ';
+  color: var(--d2-green-dim);
+}
+
+/* Cursor */
+.d2-cursor {
+  animation: d2-blink 1s step-end infinite;
+  color: var(--d2-green);
+  font-size: 0.8em;
+}
+
+@keyframes d2-blink {
+  50% { opacity: 0; }
+}
+
+/* ASCII Art */
+.d2-ascii-art, .d2-ascii-sub {
+  font-size: 10px;
+  line-height: 1.2;
+  color: var(--d2-green);
+  margin: 0;
+  white-space: pre;
+  text-shadow: 0 0 10px rgba(51, 255, 51, 0.5);
+  animation: d2-glow 3s ease-in-out infinite alternate;
+}
+
+.d2-ascii-sub {
+  color: var(--d2-green-dim);
+  margin-top: -0.5rem;
+  margin-bottom: 2rem;
+}
+
+@keyframes d2-glow {
+  from { text-shadow: 0 0 10px rgba(51, 255, 51, 0.3); }
+  to { text-shadow: 0 0 20px rgba(51, 255, 51, 0.6), 0 0 40px rgba(51, 255, 51, 0.2); }
+}
+
+.d2-hero-info {
+  margin: 1.5rem 0;
+}
+
+.d2-hero-desc {
+  padding: 1rem 0;
+  color: var(--d2-green);
+  max-width: 700px;
+  line-height: 1.8;
+}
+
+.d2-divider {
+  color: var(--d2-green-dark);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Redstone */
+.d2-hero-redstone {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  padding: 1rem;
+  border: 1px solid var(--d2-green-dark);
+  background: rgba(51, 255, 51, 0.02);
+}
+
+.d2-redstone-img {
+  width: 48px;
+  height: 48px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  filter: drop-shadow(0 0 8px rgba(255, 50, 50, 0.6));
+}
+
+.d2-redstone-label {
+  color: var(--d2-green-dim);
+  font-size: 11px;
+}
+
+/* Test grid */
+.d2-test-grid {
+  margin: 2rem 0 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.d2-test-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--d2-green-dark);
+  transition: all 0.3s;
+}
+
+.d2-test-item:hover {
+  border-color: var(--d2-green-dim);
+  background: rgba(51, 255, 51, 0.03);
+}
+
+.d2-test-id {
+  color: var(--d2-amber);
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.d2-test-name {
+  flex: 1;
+  font-size: 11px;
+}
+
+.d2-test-status {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.d2-status-pass {
+  color: var(--d2-green);
+  text-shadow: 0 0 6px rgba(51, 255, 51, 0.5);
+}
+
+/* Results */
+.d2-results {
+  padding-bottom: 4rem;
+}
+
+.d2-results-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.d2-results-title {
+  color: var(--d2-green-dim);
+  font-size: 12px;
+}
+
+.d2-model-block {
+  border: 1px solid var(--d2-green-dark);
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s;
+  background: rgba(51, 255, 51, 0.01);
+}
+
+.d2-model-block:hover {
+  border-color: var(--d2-green-dim);
+  background: rgba(51, 255, 51, 0.04);
+  box-shadow: 0 0 20px rgba(51, 255, 51, 0.05);
+}
+
+.d2-model-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.d2-model-rank {
+  color: var(--d2-amber);
+  font-weight: 700;
+  font-size: 14px;
+  min-width: 28px;
+}
+
+.d2-model-icon {
+  width: 22px;
+  height: 22px;
+  filter: brightness(0) saturate(100%) invert(68%) sepia(72%) saturate(2337%) hue-rotate(83deg) brightness(108%) contrast(115%);
+  opacity: 0.7;
+}
+
+.d2-model-name {
+  font-weight: 600;
+  font-size: 14px;
+  text-shadow: 0 0 8px rgba(51, 255, 51, 0.3);
+}
+
+.d2-model-provider {
+  color: var(--d2-green-dim);
+  font-size: 11px;
+  flex: 1;
+}
+
+.d2-model-overall {
+  color: var(--d2-amber);
+  font-weight: 700;
+  font-size: 14px;
+  text-shadow: 0 0 8px rgba(255, 170, 0, 0.3);
+}
+
+.d2-model-bars {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.d2-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 12px;
+}
+
+.d2-bar-label {
+  color: var(--d2-green-dim);
+  min-width: 72px;
+  font-size: 11px;
+}
+
+.d2-ascii-bar {
+  font-size: 12px;
+}
+
+.d2-bar-filled {
+  color: var(--d2-green);
+  text-shadow: 0 0 4px rgba(51, 255, 51, 0.4);
+}
+
+.d2-bar-empty {
+  color: var(--d2-green-dark);
+}
+
+/* Animation */
+.d2-animate-in {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.5s ease-out;
+  transition-delay: var(--delay, 0s);
+}
+
+.d2-animate-in.d2-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Footer */
+.d2-footer-line {
+  margin-top: 3rem;
+  color: var(--d2-green-dim);
+  font-size: 11px;
+}
+
+.d2-footer-line p {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 700px) {
+  .d2-terminal { padding: 1rem; }
+  .d2-ascii-art, .d2-ascii-sub { font-size: 5px; }
+  .d2-test-grid { grid-template-columns: 1fr; }
+}
