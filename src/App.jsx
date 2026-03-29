@@ -5,14 +5,14 @@ const CELL_SIZE = 24
 const FILL_CHANCE = 0.18
 
 const baseModels = [
-  { name: 'claude-3.5-sonnet', provider: 'Anthropic', icon: '/claude.svg', baseScore: 91 },
-  { name: 'gpt-o3', provider: 'OpenAI', icon: '/openai.svg', baseScore: 87 },
-  { name: 'gpt-4o', provider: 'OpenAI', icon: '/openai.svg', baseScore: 82 },
-  { name: 'claude-3-opus', provider: 'Anthropic', icon: '/claude.svg', baseScore: 79 },
-  { name: 'gemini-2.0-pro', provider: 'Google', icon: '/gemini.svg', baseScore: 74 },
-  { name: 'deepseek-r1', provider: 'DeepSeek', icon: '/deepseek.svg', baseScore: 69 },
-  { name: 'grok-3', provider: 'xAI', icon: '/grok.svg', baseScore: 58 },
-  { name: 'gemini-2.5-flash', provider: 'Google', icon: '/gemini.svg', baseScore: 51 },
+  { name: 'claude-3.5-sonnet', provider: 'Anthropic', icon: 'claude.svg', baseScore: 91 },
+  { name: 'gpt-o3', provider: 'OpenAI', icon: 'openai.svg', baseScore: 87 },
+  { name: 'gpt-4o', provider: 'OpenAI', icon: 'openai.svg', baseScore: 82 },
+  { name: 'claude-3-opus', provider: 'Anthropic', icon: 'claude.svg', baseScore: 79 },
+  { name: 'gemini-2.0-pro', provider: 'Google', icon: 'gemini.svg', baseScore: 74 },
+  { name: 'deepseek-r1', provider: 'DeepSeek', icon: 'deepseek.svg', baseScore: 69 },
+  { name: 'grok-3', provider: 'xAI', icon: 'grok.svg', baseScore: 58 },
+  { name: 'gemini-2.5-flash', provider: 'Google', icon: 'gemini.svg', baseScore: 51 },
 ]
 
 const tabInfo = {
@@ -201,12 +201,12 @@ function RedstoneIcon() {
       >
         <Box w={W} h={W} d={D}
           textures={{
-            front: '/redstone.png',
-            back: '/redstone.png',
-            left: '/redstone.png',
-            right: '/redstone.png',
-            top: '/redstone.png',
-            bottom: '/redstone.png',
+            front: 'redstone.png',
+            back: 'redstone.png',
+            left: 'redstone.png',
+            right: 'redstone.png',
+            top: 'redstone.png',
+            bottom: 'redstone.png',
           }}
           style={{ position: 'absolute', top: 0, left: 0 }}
         />
@@ -266,7 +266,7 @@ function RepeaterIcon() {
           width: torchTexW, height: torchTexH,
           top: 0, left: 0,
           transform: `translate3d(${0}px, 0, ${offsetZ + hd}px)`,
-          backgroundImage: `url(/repeater/redstone_torch.png)`,
+          backgroundImage: `url(repeater/redstone_torch.png)`,
           backgroundSize: `${torchTexW}px ${torchTexH}px`,
         }} />
         {/* Back */}
@@ -274,7 +274,7 @@ function RepeaterIcon() {
           width: torchTexW, height: torchTexH,
           top: 0, left: 0,
           transform: `translate3d(${0}px, 0, ${offsetZ - hd}px) rotateY(180deg)`,
-          backgroundImage: `url(/repeater/redstone_torch.png)`,
+          backgroundImage: `url(repeater/redstone_torch.png)`,
           backgroundSize: `${torchTexW}px ${torchTexH}px`,
         }} />
         {/* Right */}
@@ -282,7 +282,7 @@ function RepeaterIcon() {
           width: torchTexW, height: torchTexH,
           top: 0, left: 0,
           transform: `translate3d(${0}px, 0, ${offsetZ}px) rotateY(90deg)`,
-          backgroundImage: `url(/repeater/redstone_torch.png)`,
+          backgroundImage: `url(repeater/redstone_torch.png)`,
           backgroundSize: `${torchTexW}px ${torchTexH}px`,
         }} />
         {/* Left */}
@@ -290,7 +290,7 @@ function RepeaterIcon() {
           width: torchTexW, height: torchTexH,
           top: 0, left: 0,
           transform: `translate3d(${0}px, 0, ${offsetZ}px) rotateY(-90deg)`,
-          backgroundImage: `url(/repeater/redstone_torch.png)`,
+          backgroundImage: `url(repeater/redstone_torch.png)`,
           backgroundSize: `${torchTexW}px ${torchTexH}px`,
         }} />
         {/* Top — uses redstone_torch_head.png */}
@@ -298,7 +298,7 @@ function RepeaterIcon() {
           width: torchTexW, height: torchTexW,
           top: 0, left: 0,
           transform: `translate3d(${0}px, ${overflow}px, ${offsetZ}px) rotateX(90deg)`,
-          backgroundImage: `url(/repeater/redstone_torch_head.png)`,
+          backgroundImage: `url(repeater/redstone_torch_head.png)`,
           backgroundSize: `${torchTexW}px ${torchTexW}px`,
         }} />
       </div>
@@ -317,12 +317,12 @@ function RepeaterIcon() {
         {/* Slab base */}
         <Box w={W} h={slabH} d={W}
           textures={{
-            front: '/repeater/repeater_side.png',
-            back: '/repeater/repeater_side.png',
-            left: '/repeater/repeater_side.png',
-            right: '/repeater/repeater_side.png',
-            top: '/repeater/repeater_top.png',
-            bottom: '/repeater/repeater_bottom.png',
+            front: 'repeater/repeater_side.png',
+            back: 'repeater/repeater_side.png',
+            left: 'repeater/repeater_side.png',
+            right: 'repeater/repeater_side.png',
+            top: 'repeater/repeater_top.png',
+            bottom: 'repeater/repeater_bottom.png',
           }}
           style={{ position: 'absolute', bottom: 0, left: 0 }}
         />
@@ -356,13 +356,13 @@ function SlimeBlockIcon() {
       >
         {/* Outer cube — semi-transparent */}
         <Box w={W} h={W} d={W}
-          textures={allSides('/slime_block.png')}
+          textures={allSides('slime_block.png')}
           style={{ position: 'absolute', top: 0, left: 0 }}
           faceStyle={{ opacity: 0.5 }}
         />
         {/* Inner cube — solid */}
         <Box w={innerW} h={innerW} d={innerW}
-          textures={allSides('/slimeblock_inner.png')}
+          textures={allSides('slimeblock_inner.png')}
           style={{
             position: 'absolute',
             top: (W - innerW) / 2,
@@ -401,29 +401,29 @@ function PistonIconFull() {
         {/* Base body */}
         <Box w={W} h={baseH} d={W}
           textures={{
-            front: '/piston/piston_side.png',
-            back: '/piston/piston_side.png',
-            left: '/piston/piston_side.png',
-            right: '/piston/piston_side.png',
-            top: '/piston/piston_inner.png',
-            bottom: '/piston/piston_bottom.png',
+            front: 'piston/piston_side.png',
+            back: 'piston/piston_side.png',
+            left: 'piston/piston_side.png',
+            right: 'piston/piston_side.png',
+            top: 'piston/piston_inner.png',
+            bottom: 'piston/piston_bottom.png',
           }}
           style={{ position: 'absolute', bottom: 0, left: 0 }}
         />
         {/* Pole — using dedicated piston_pole.png */}
         <Box w={poleW} h={poleH} d={poleW}
-          textures={allSides('/piston/piston_pole.png')}
+          textures={allSides('piston/piston_pole.png')}
           style={{ position: 'absolute', bottom: baseH, left: (W - poleW) / 2 }}
         />
         {/* Head plate */}
         <Box w={W} h={headH} d={W}
           textures={{
-            front: '/piston/piston_top_side.png',
-            back: '/piston/piston_top_side.png',
-            left: '/piston/piston_top_side.png',
-            right: '/piston/piston_top_side.png',
-            top: '/piston/piston_top.png',
-            bottom: '/piston/piston_top.png',
+            front: 'piston/piston_top_side.png',
+            back: 'piston/piston_top_side.png',
+            left: 'piston/piston_top_side.png',
+            right: 'piston/piston_top_side.png',
+            top: 'piston/piston_top.png',
+            bottom: 'piston/piston_top.png',
           }}
           style={{ position: 'absolute', bottom: baseH + poleH, left: 0 }}
         />
